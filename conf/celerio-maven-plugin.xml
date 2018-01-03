@@ -47,17 +47,17 @@
             </columnConfigs>
         </entityConfig>
 
-        <entityConfig tableName="CHARACTERISTIC">
-            <columnConfigs>
-                <columnConfig columnName="id" searchField="true" searchResult="true" />
-            </columnConfigs>
-        </entityConfig>
+        <!--<entityConfig tableName="CHARACTERISTIC">-->
+            <!--<columnConfigs>-->
+                <!--<columnConfig columnName="id" searchField="true" searchResult="true" />-->
+            <!--</columnConfigs>-->
+        <!--</entityConfig>-->
 
-        <entityConfig tableName="RACE_OPTION">
-            <columnConfigs>
-                <columnConfig columnName="id" searchField="true" searchResult="true" />
-            </columnConfigs>
-        </entityConfig>
+        <!--<entityConfig tableName="RACE_OPTION">-->
+            <!--<columnConfigs>-->
+                <!--<columnConfig columnName="id" searchField="true" searchResult="true" />-->
+            <!--</columnConfigs>-->
+        <!--</entityConfig>-->
 
         <entityConfig tableName="RACE_OPTION_GENDER" associationDirection="BIDIRECTIONAL">
             <columnConfigs>

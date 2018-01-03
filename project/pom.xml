@@ -88,11 +88,11 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Version dependencies when used in multiple dependencies -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <celerio-maven-plugin.outputDir>${project.basedir}/generated</celerio-maven-plugin.outputDir>
+        <celerio-maven-plugin.outputDir>${project.basedir}</celerio-maven-plugin.outputDir>
         <celerio-maven-plugin.version>4.0.23</celerio-maven-plugin.version>
 
-        <celerio-maven-plugin.configuration>conf/celerio-maven-plugin.xml</celerio-maven-plugin.configuration>
-        <celerio-maven-plugin.packs.configuration>conf/celerio-template-packs.xml</celerio-maven-plugin.packs.configuration>
+        <celerio-maven-plugin.configuration>../conf/celerio-maven-plugin.xml</celerio-maven-plugin.configuration>
+        <celerio-maven-plugin.packs.configuration>../conf/celerio-template-packs.xml</celerio-maven-plugin.packs.configuration>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Variables substituted in resources file at build time -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -248,32 +248,6 @@
                 <excludes>
                     <exclude>application.yml</exclude>
                 </excludes>
-            </resource>
-
-            <!-- COPY aot compilation results + aot index.html -->
-            <resource>
-                <directory>src/main/webapp/aot</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>index.html</include>
-                    <include>dist/build.js</include>
-                    <include>dist/build.js.map</include>
-                </includes>
-                <targetPath>static</targetPath>
-            </resource>
-
-            <!-- COPY other resources required by aot index.html -->
-            <resource>
-                <directory>src/main/webapp</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>node_modules/core-js/client/shim.min.js</include>
-                    <include>node_modules/zone.js/dist/zone.min.js</include>
-                    <include>node_modules/json.date-extensions/json.date-extensions.min.js</include>
-                    <include>node_modules/primeng/resources/**</include>
-                    <include>node_modules/@angular/material/core/theming/**</include>
-                </includes>
-                <targetPath>static</targetPath>
             </resource>
         </resources>
 
