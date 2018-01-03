@@ -1,0 +1,162 @@
+    <md-card *ngIf="gender" ngForm #genderForm="ngForm">
+        <md-card-title>Gender Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name"  class="required">Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="name" type="text" [(ngModel)]="gender.name"  required   name="name" #name="ngModel"/>
+                    
+                    <md-error *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        Name is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="strengthmin" >Strengthmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="strengthmin" type="number" [(ngModel)]="gender.strengthmin"  name="strengthmin" #strengthmin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="strengthmax" >Strengthmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="strengthmax" type="number" [(ngModel)]="gender.strengthmax"  name="strengthmax" #strengthmax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="agilitymin" >Agilitymin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="agilitymin" type="number" [(ngModel)]="gender.agilitymin"  name="agilitymin" #agilitymin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="agilitymax" >Agilitymax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="agilitymax" type="number" [(ngModel)]="gender.agilitymax"  name="agilitymax" #agilitymax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="endurancemin" >Endurancemin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="endurancemin" type="number" [(ngModel)]="gender.endurancemin"  name="endurancemin" #endurancemin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="endurancemax" >Endurancemax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="endurancemax" type="number" [(ngModel)]="gender.endurancemax"  name="endurancemax" #endurancemax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="intelligencemin" >Intelligencemin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="intelligencemin" type="number" [(ngModel)]="gender.intelligencemin"  name="intelligencemin" #intelligencemin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="intelligencemax" >Intelligencemax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="intelligencemax" type="number" [(ngModel)]="gender.intelligencemax"  name="intelligencemax" #intelligencemax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charismamin" >Charismamin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="charismamin" type="number" [(ngModel)]="gender.charismamin"  name="charismamin" #charismamin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charismamax" >Charismamax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="charismamax" type="number" [(ngModel)]="gender.charismamax"  name="charismamax" #charismamax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="perceptionmin" >Perceptionmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="perceptionmin" type="number" [(ngModel)]="gender.perceptionmin"  name="perceptionmin" #perceptionmin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="perceptionmax" >Perceptionmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="perceptionmax" type="number" [(ngModel)]="gender.perceptionmax"  name="perceptionmax" #perceptionmax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="luckmin" >Luckmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="luckmin" type="number" [(ngModel)]="gender.luckmin"  name="luckmin" #luckmin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="luckmax" >Luckmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="luckmax" type="number" [(ngModel)]="gender.luckmax"  name="luckmax" #luckmax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="heightmin" >Heightmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="heightmin" type="number" [(ngModel)]="gender.heightmin"  name="heightmin" #heightmin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="heightmax" >Heightmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="heightmax" type="number" [(ngModel)]="gender.heightmax"  name="heightmax" #heightmax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="weightmin" >Weightmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="weightmin" type="number" [(ngModel)]="gender.weightmin"  name="weightmin" #weightmin="ngModel" />
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="weightmax" >Weightmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="weightmax" type="number" [(ngModel)]="gender.weightmax"  name="weightmax" #weightmax="ngModel" />
+                    
+                </md-input-container>
+                </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!genderForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="gender && gender.id">
+    <md-card-subtitle>Gender db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="TheRacesOptions">
+            <p-pickList [source]="sourceTheRacesOptions" [target]="gender.theRacesOptions" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-anRaceOption pTemplate="item">
+{{ anRaceOption.creationAuthor }} {{ anRaceOption.lastModificationAuthor }}                 </ng-template>
+            </p-pickList>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

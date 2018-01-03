@@ -1,0 +1,113 @@
+    <md-card *ngIf="characteristic" ngForm #characteristicForm="ngForm">
+        <md-card-title>Characteristic Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="strength"  class="required">Strength</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="strength" type="number" [(ngModel)]="characteristic.strength"  required  name="strength" #strength="ngModel" />
+                    
+                    <md-error *ngIf="!strength.valid && strength.dirty && strength.errors['required']">
+                        Strength is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="agility"  class="required">Agility</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="agility" type="number" [(ngModel)]="characteristic.agility"  required  name="agility" #agility="ngModel" />
+                    
+                    <md-error *ngIf="!agility.valid && agility.dirty && agility.errors['required']">
+                        Agility is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="endurance"  class="required">Endurance</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="endurance" type="number" [(ngModel)]="characteristic.endurance"  required  name="endurance" #endurance="ngModel" />
+                    
+                    <md-error *ngIf="!endurance.valid && endurance.dirty && endurance.errors['required']">
+                        Endurance is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="intelligence"  class="required">Intelligence</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="intelligence" type="number" [(ngModel)]="characteristic.intelligence"  required  name="intelligence" #intelligence="ngModel" />
+                    
+                    <md-error *ngIf="!intelligence.valid && intelligence.dirty && intelligence.errors['required']">
+                        Intelligence is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charisma"  class="required">Charisma</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="charisma" type="number" [(ngModel)]="characteristic.charisma"  required  name="charisma" #charisma="ngModel" />
+                    
+                    <md-error *ngIf="!charisma.valid && charisma.dirty && charisma.errors['required']">
+                        Charisma is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="perception"  class="required">Perception</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="perception" type="number" [(ngModel)]="characteristic.perception"  required  name="perception" #perception="ngModel" />
+                    
+                    <md-error *ngIf="!perception.valid && perception.dirty && perception.errors['required']">
+                        Perception is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="luck"  class="required">Luck</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="luck" type="number" [(ngModel)]="characteristic.luck"  required  name="luck" #luck="ngModel" />
+                    
+                    <md-error *ngIf="!luck.valid && luck.dirty && luck.errors['required']">
+                        Luck is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="pointsAvailable"  class="required">Points Available</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="pointsAvailable" type="number" [(ngModel)]="characteristic.pointsAvailable"  required  name="pointsAvailable" #pointsAvailable="ngModel" />
+                    
+                    <md-error *ngIf="!pointsAvailable.valid && pointsAvailable.dirty && pointsAvailable.errors['required']">
+                        Points Available is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="skillAvailable"  class="required">Skill Available</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="skillAvailable" type="number" [(ngModel)]="characteristic.skillAvailable"  required  name="skillAvailable" #skillAvailable="ngModel" />
+                    
+                    <md-error *ngIf="!skillAvailable.valid && skillAvailable.dirty && skillAvailable.errors['required']">
+                        Skill Available is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!characteristicForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="characteristic && characteristic.id">
+    <md-card-subtitle>Characteristic db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="Characteristicss">
+            <character-list [charc]="characteristic" sub="true"></character-list>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

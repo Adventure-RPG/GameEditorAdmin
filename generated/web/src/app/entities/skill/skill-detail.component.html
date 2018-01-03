@@ -1,0 +1,72 @@
+    <md-card *ngIf="skill" ngForm #skillForm="ngForm">
+        <md-card-title>Skill Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name"  class="required">Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="name" type="text" [(ngModel)]="skill.name"  required   name="name" #name="ngModel"/>
+                    
+                    <md-error *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        Name is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="skill2">Skill2</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <skill-auto-complete [(ngModel)]="skill.skill2" id="skill2" name="skill2" [disabled]="sub"></skill-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoSkill2" type="button" (click)="gotoSkill2()" *ngIf="!sub && skill.skill2" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearSkill2" type="button" (click)="clearSkill2()" *ngIf="!sub && skill.skill2" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="position"  class="required">Position</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <p-triStateCheckbox [(ngModel)]="skill.position" name="position"></p-triStateCheckbox>{{skill.position}}
+                </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="script" class="required">Script</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <script-auto-complete [(ngModel)]="skill.script" id="script" name="script" [disabled]="sub"></script-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoScript" type="button" (click)="gotoScript()" *ngIf="!sub && skill.script" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearScript" type="button" (click)="clearScript()" *ngIf="!sub && skill.script" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="onInit"  class="required">On Init</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <p-triStateCheckbox [(ngModel)]="skill.onInit" name="onInit"></p-triStateCheckbox>{{skill.onInit}}
+                </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!skillForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="skill && skill.id">
+    <md-card-subtitle>Skill db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="TheChars">
+            <p-pickList [source]="sourceTheChars" [target]="skill.theChars" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-anChar pTemplate="item">
+{{ anChar.username }}                 </ng-template>
+            </p-pickList>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

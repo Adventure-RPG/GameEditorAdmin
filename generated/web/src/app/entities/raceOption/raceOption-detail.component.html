@@ -1,0 +1,212 @@
+    <md-card *ngIf="raceOption" ngForm #raceOptionForm="ngForm">
+        <md-card-title>RaceOption Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="strengthmin"  class="required">Strengthmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="strengthmin" type="number" [(ngModel)]="raceOption.strengthmin"  required  name="strengthmin" #strengthmin="ngModel" />
+                    
+                    <md-error *ngIf="!strengthmin.valid && strengthmin.dirty && strengthmin.errors['required']">
+                        Strengthmin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="strengthmax"  class="required">Strengthmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="strengthmax" type="number" [(ngModel)]="raceOption.strengthmax"  required  name="strengthmax" #strengthmax="ngModel" />
+                    
+                    <md-error *ngIf="!strengthmax.valid && strengthmax.dirty && strengthmax.errors['required']">
+                        Strengthmax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="agilitymin"  class="required">Agilitymin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="agilitymin" type="number" [(ngModel)]="raceOption.agilitymin"  required  name="agilitymin" #agilitymin="ngModel" />
+                    
+                    <md-error *ngIf="!agilitymin.valid && agilitymin.dirty && agilitymin.errors['required']">
+                        Agilitymin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="agilitymax"  class="required">Agilitymax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="agilitymax" type="number" [(ngModel)]="raceOption.agilitymax"  required  name="agilitymax" #agilitymax="ngModel" />
+                    
+                    <md-error *ngIf="!agilitymax.valid && agilitymax.dirty && agilitymax.errors['required']">
+                        Agilitymax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="endurancemin"  class="required">Endurancemin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="endurancemin" type="number" [(ngModel)]="raceOption.endurancemin"  required  name="endurancemin" #endurancemin="ngModel" />
+                    
+                    <md-error *ngIf="!endurancemin.valid && endurancemin.dirty && endurancemin.errors['required']">
+                        Endurancemin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="endurancemax"  class="required">Endurancemax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="endurancemax" type="number" [(ngModel)]="raceOption.endurancemax"  required  name="endurancemax" #endurancemax="ngModel" />
+                    
+                    <md-error *ngIf="!endurancemax.valid && endurancemax.dirty && endurancemax.errors['required']">
+                        Endurancemax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="intelligencemin"  class="required">Intelligencemin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="intelligencemin" type="number" [(ngModel)]="raceOption.intelligencemin"  required  name="intelligencemin" #intelligencemin="ngModel" />
+                    
+                    <md-error *ngIf="!intelligencemin.valid && intelligencemin.dirty && intelligencemin.errors['required']">
+                        Intelligencemin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="intelligencemax"  class="required">Intelligencemax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="intelligencemax" type="number" [(ngModel)]="raceOption.intelligencemax"  required  name="intelligencemax" #intelligencemax="ngModel" />
+                    
+                    <md-error *ngIf="!intelligencemax.valid && intelligencemax.dirty && intelligencemax.errors['required']">
+                        Intelligencemax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charismamin"  class="required">Charismamin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="charismamin" type="number" [(ngModel)]="raceOption.charismamin"  required  name="charismamin" #charismamin="ngModel" />
+                    
+                    <md-error *ngIf="!charismamin.valid && charismamin.dirty && charismamin.errors['required']">
+                        Charismamin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charismamax"  class="required">Charismamax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="charismamax" type="number" [(ngModel)]="raceOption.charismamax"  required  name="charismamax" #charismamax="ngModel" />
+                    
+                    <md-error *ngIf="!charismamax.valid && charismamax.dirty && charismamax.errors['required']">
+                        Charismamax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="perceptionmin"  class="required">Perceptionmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="perceptionmin" type="number" [(ngModel)]="raceOption.perceptionmin"  required  name="perceptionmin" #perceptionmin="ngModel" />
+                    
+                    <md-error *ngIf="!perceptionmin.valid && perceptionmin.dirty && perceptionmin.errors['required']">
+                        Perceptionmin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="perceptionmax"  class="required">Perceptionmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="perceptionmax" type="number" [(ngModel)]="raceOption.perceptionmax"  required  name="perceptionmax" #perceptionmax="ngModel" />
+                    
+                    <md-error *ngIf="!perceptionmax.valid && perceptionmax.dirty && perceptionmax.errors['required']">
+                        Perceptionmax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="luckmin"  class="required">Luckmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="luckmin" type="number" [(ngModel)]="raceOption.luckmin"  required  name="luckmin" #luckmin="ngModel" />
+                    
+                    <md-error *ngIf="!luckmin.valid && luckmin.dirty && luckmin.errors['required']">
+                        Luckmin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="luckmax"  class="required">Luckmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="luckmax" type="number" [(ngModel)]="raceOption.luckmax"  required  name="luckmax" #luckmax="ngModel" />
+                    
+                    <md-error *ngIf="!luckmax.valid && luckmax.dirty && luckmax.errors['required']">
+                        Luckmax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="heightmin"  class="required">Heightmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="heightmin" type="number" [(ngModel)]="raceOption.heightmin"  required  name="heightmin" #heightmin="ngModel" />
+                    
+                    <md-error *ngIf="!heightmin.valid && heightmin.dirty && heightmin.errors['required']">
+                        Heightmin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="heightmax"  class="required">Heightmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="heightmax" type="number" [(ngModel)]="raceOption.heightmax"  required  name="heightmax" #heightmax="ngModel" />
+                    
+                    <md-error *ngIf="!heightmax.valid && heightmax.dirty && heightmax.errors['required']">
+                        Heightmax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="weightmin"  class="required">Weightmin</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="weightmin" type="number" [(ngModel)]="raceOption.weightmin"  required  name="weightmin" #weightmin="ngModel" />
+                    
+                    <md-error *ngIf="!weightmin.valid && weightmin.dirty && weightmin.errors['required']">
+                        Weightmin is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="weightmax"  class="required">Weightmax</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="weightmax" type="number" [(ngModel)]="raceOption.weightmax"  required  name="weightmax" #weightmax="ngModel" />
+                    
+                    <md-error *ngIf="!weightmax.valid && weightmax.dirty && weightmax.errors['required']">
+                        Weightmax is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!raceOptionForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="raceOption && raceOption.id">
+    <md-card-subtitle>RaceOption db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="TheGenders">
+            <p-pickList [source]="sourceTheGenders" [target]="raceOption.theGenders" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-anGender pTemplate="item">
+{{ anGender.name }}                 </ng-template>
+            </p-pickList>
+        </md-tab>
+        <md-tab label="TheModels">
+            <p-pickList [source]="sourceTheModels" [target]="raceOption.theModels" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-anModel pTemplate="item">
+{{ anModel.name }}                 </ng-template>
+            </p-pickList>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

@@ -88,11 +88,11 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Version dependencies when used in multiple dependencies -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <celerio-maven-plugin.outputDir>${project.basedir}/generated</celerio-maven-plugin.outputDir>
+        <celerio-maven-plugin.outputDir>${project.basedir}</celerio-maven-plugin.outputDir>
         <celerio-maven-plugin.version>4.0.23</celerio-maven-plugin.version>
 
-        <celerio-maven-plugin.configuration>conf/celerio-maven-plugin.xml</celerio-maven-plugin.configuration>
-        <celerio-maven-plugin.packs.configuration>conf/celerio-template-packs.xml</celerio-maven-plugin.packs.configuration>
+        <celerio-maven-plugin.configuration>../conf/celerio-maven-plugin.xml</celerio-maven-plugin.configuration>
+        <celerio-maven-plugin.packs.configuration>../conf/celerio-template-packs.xml</celerio-maven-plugin.packs.configuration>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Variables substituted in resources file at build time -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -401,7 +401,7 @@
                                     <fileset>
                                         <basedir>${project.basedir}/..</basedir>
                                         <includes>
-                                            <include>conf/${sql.create.script}</include>
+                                            <include>../conf/${sql.create.script}</include>
                                         </includes>
                                     </fileset>
                                 </configuration>
