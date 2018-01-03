@@ -1,0 +1,79 @@
+    <md-card *ngIf="race" ngForm #raceForm="ngForm">
+        <md-card-title>Race Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name"  class="required">Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="name" type="text" [(ngModel)]="race.name"  required   name="name" #name="ngModel"/>
+                    
+                    <md-error *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        Name is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <textarea mdInput id="description" [(ngModel)]="race.description"   autoResize="true" name="description" #description="ngModel"></textarea>
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="imgFile"  class="required">Img File</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <textarea mdInput id="imgFile" [(ngModel)]="race.imgFile"  required   autoResize="true" name="imgFile" #imgFile="ngModel"></textarea>
+                    
+                    <md-error *ngIf="!imgFile.valid && imgFile.dirty && imgFile.errors['required']">
+                        Img File is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charc" class="required">Charc</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <characteristic-auto-complete [(ngModel)]="race.charc" id="charc" name="charc" [disabled]="sub"></characteristic-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoCharc" type="button" (click)="gotoCharc()" *ngIf="!sub && race.charc" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearCharc" type="button" (click)="clearCharc()" *ngIf="!sub && race.charc" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="raceOpt" class="required">Race Opt</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <raceOption-auto-complete [(ngModel)]="race.raceOpt" id="raceOpt" name="raceOpt" [disabled]="sub"></raceOption-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoRaceOpt" type="button" (click)="gotoRaceOpt()" *ngIf="!sub && race.raceOpt" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearRaceOpt" type="button" (click)="clearRaceOpt()" *ngIf="!sub && race.raceOpt" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!raceForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="race && race.id">
+    <md-card-subtitle>Race db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="CharacterRace">
+            <character-list *ngIf="showCharacterRace" [race]="race" sub="true" [header]="'CharacterRace of this race'" (onAddNewClicked)="showCharacterRace = false"></character-list>
+            <character-detail *ngIf="!showCharacterRace" [race]="race" sub="true" (onSaveClicked)="showCharacterRace = true" (onCancelClicked)="showCharacterRace = true"></character-detail>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

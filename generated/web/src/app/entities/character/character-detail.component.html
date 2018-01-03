@@ -1,0 +1,64 @@
+    <md-card *ngIf="character" ngForm #characterForm="ngForm">
+        <md-card-title>Character Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="username"  class="required">Username</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="username" type="text" [(ngModel)]="character.username"  required   name="username" #username="ngModel"/>
+                    
+                    <md-error *ngIf="!username.valid && username.dirty && username.errors['required']">
+                        Username is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="race" class="required">Race</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <race-auto-complete [(ngModel)]="character.race" id="race" name="race" [disabled]="sub"></race-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoRace" type="button" (click)="gotoRace()" *ngIf="!sub && character.race" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearRace" type="button" (click)="clearRace()" *ngIf="!sub && character.race" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="charc" class="required">Charc</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <characteristic-auto-complete [(ngModel)]="character.charc" id="charc" name="charc" [disabled]="sub"></characteristic-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoCharc" type="button" (click)="gotoCharc()" *ngIf="!sub && character.charc" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearCharc" type="button" (click)="clearCharc()" *ngIf="!sub && character.charc" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!characterForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="character && character.id">
+    <md-card-subtitle>Character db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="TheSkills">
+            <p-pickList [source]="sourceTheSkills" [target]="character.theSkills" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-anSkill pTemplate="item">
+{{ anSkill.name }}                 </ng-template>
+            </p-pickList>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

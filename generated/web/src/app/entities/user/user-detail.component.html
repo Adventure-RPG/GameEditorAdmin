@@ -1,0 +1,60 @@
+    <md-card *ngIf="user" ngForm #userForm="ngForm">
+        <md-card-title>User Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="login"  class="required">Login</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="login" type="text" [(ngModel)]="user.login"  required   name="login" #login="ngModel"/>
+                    
+                    <md-error *ngIf="!login.valid && login.dirty && login.errors['required']">
+                        Login is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="password"  class="required">Password</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput type="password" [(ngModel)]="user.password"  required   name="password" #password="ngModel"/>
+                    
+                    <md-error *ngIf="!password.valid && password.dirty && password.errors['required']">
+                        Password is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="email" >Email</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="email" type="email" [(ngModel)]="user.email"   validateEmail name="email" #email="ngModel"/>
+                    
+                    <md-error *ngIf="!email.valid && email.dirty && email.errors['validateEmail']">
+                        Email is invalid. Expecting a valid email address.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="isEnabled"  class="required">Is Enabled?</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <p-triStateCheckbox [(ngModel)]="user.isEnabled" name="isEnabled"></p-triStateCheckbox>{{user.isEnabled}}
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="firstName" >First Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="firstName" type="text" [(ngModel)]="user.firstName"   name="firstName" #firstName="ngModel"/>
+                    
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="lastName" >Last Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="lastName" type="text" [(ngModel)]="user.lastName"   name="lastName" #lastName="ngModel"/>
+                    
+                </md-input-container>
+                </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!userForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+

@@ -1,0 +1,67 @@
+    <md-card *ngIf="model" ngForm #modelForm="ngForm">
+        <md-card-title>Model Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name"  class="required">Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="name" type="text" [(ngModel)]="model.name"  required   name="name" #name="ngModel"/>
+                    
+                    <md-error *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        Name is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="fileName"  class="required">File Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <textarea mdInput id="fileName" [(ngModel)]="model.fileName"  required   autoResize="true" name="fileName" #fileName="ngModel"></textarea>
+                    
+                    <md-error *ngIf="!fileName.valid && fileName.dirty && fileName.errors['required']">
+                        File Name is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="cat" class="required">Cat</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <categoryType-auto-complete [(ngModel)]="model.cat" id="cat" name="cat" [disabled]="sub"></categoryType-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoCat" type="button" (click)="gotoCat()" *ngIf="!sub && model.cat" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearCat" type="button" (click)="clearCat()" *ngIf="!sub && model.cat" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="color" >Color</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="color" type="text" [(ngModel)]="model.color"   name="color" #color="ngModel"/>
+                    
+                </md-input-container>
+                </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!modelForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+    <br/>
+    <md-card *ngIf="model && model.id">
+    <md-card-subtitle>Model db relations</md-card-subtitle>
+    <md-card-content>
+    <md-tab-group>
+        <md-tab label="TheGenders">
+            <p-pickList [source]="sourceTheGenders" [target]="model.theGenders" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-anGender pTemplate="item">
+{{ anGender.creationAuthor }} {{ anGender.lastModificationAuthor }}                 </ng-template>
+            </p-pickList>
+        </md-tab>
+
+    </md-tab-group>
+    </md-card-content>
+    </md-card>

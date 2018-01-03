@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.jaxio.com/schema/celerio">
+  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://127.0.0.1:5432/game" user="game" password="game" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
+    <tableNamePatterns/>
+    <tableTypes>
+      <tableType>TABLE</tableType>
+    </tableTypes>
+  </jdbcConnectivity>
+  <databaseInfo databaseMajorVersion="9" databaseMinorVersion="5" databaseProductName="PostgreSQL" databaseProductVersion="9.5.10" driverMajorVersion="42" driverMinorVersion="1" driverName="PostgreSQL JDBC Driver" driverVersion="42.1.4" extraInfo=""/>
+  <tables>
+    <table name="USER" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('&quot;USER_id_seq&quot;'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="login" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" remarks="The login used to login" size="100" type="VARCHAR"/>
+        <column name="password" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+        <column name="email" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="100" type="VARCHAR"/>
+        <column name="is_enabled" columnDef="true" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="1" type="BIT"/>
+        <column name="first_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="100" type="VARCHAR"/>
+        <column name="last_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="100" type="VARCHAR"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="8" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="10" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="USER_pkey" nonUnique="false"/>
+        <indexe columnName="login" indexName="user_login_uq" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="category_type" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('category_type_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="150" type="VARCHAR"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="2147483647" type="VARCHAR"/>
+        <column name="cat_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="name" indexName="category_type_name_uq" nonUnique="false"/>
+        <indexe columnName="id" indexName="category_type_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="cat_id" fkName="category_type_cat_id_fkey" pkColumnName="id" pkTableName="category_type" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="character" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('character_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="username" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="200" type="VARCHAR"/>
+        <column name="race_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="charc_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="charc_id" indexName="character_chars_uq" nonUnique="false"/>
+        <indexe columnName="id" indexName="character_pkey" nonUnique="false"/>
+        <indexe columnName="username" indexName="character_username_uq" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="charc_id" fkName="character_charc_id_fkey" pkColumnName="id" pkTableName="characteristic" pkTableSchema="public"/>
+        <importedKey fkColumnName="race_id" fkName="character_race_id_fkey" pkColumnName="id" pkTableName="race" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="character_skill" type="TABLE" schemaName="public">
+      <columns>
+        <column name="char_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="skill_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="char_id" indexName="character_skill_pkey" nonUnique="false"/>
+        <indexe columnName="skill_id" indexName="character_skill_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="char_id" fkName="character_skill_char_id_fkey" pkColumnName="id" pkTableName="character" pkTableSchema="public"/>
+        <importedKey fkColumnName="skill_id" fkName="character_skill_skill_id_fkey" pkColumnName="id" pkTableName="skill" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>char_id</primaryKey>
+        <primaryKey>skill_id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="characteristic" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('characteristic_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="strength" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="agility" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="endurance" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
+        <column name="intelligence" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="charisma" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="10" type="INTEGER"/>
+        <column name="perception" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="7" size="10" type="INTEGER"/>
+        <column name="luck" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="8" size="10" type="INTEGER"/>
+        <column name="points_available" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="9" size="10" type="INTEGER"/>
+        <column name="skill_available" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="10" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="11" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="13" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="14" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="15" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="characteristic_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="gender" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('gender_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="200" type="VARCHAR"/>
+        <column name="strengthmin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="strengthmax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="10" type="INTEGER"/>
+        <column name="agilitymin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="agilitymax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="10" type="INTEGER"/>
+        <column name="endurancemin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="10" type="INTEGER"/>
+        <column name="endurancemax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="10" type="INTEGER"/>
+        <column name="intelligencemin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="10" type="INTEGER"/>
+        <column name="intelligencemax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="10" type="INTEGER"/>
+        <column name="charismamin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="10" type="INTEGER"/>
+        <column name="charismamax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="10" type="INTEGER"/>
+        <column name="perceptionmin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="10" type="INTEGER"/>
+        <column name="perceptionmax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="14" size="10" type="INTEGER"/>
+        <column name="luckmin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="15" size="10" type="INTEGER"/>
+        <column name="luckmax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="16" size="10" type="INTEGER"/>
+        <column name="heightmin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="17" size="10" type="INTEGER"/>
+        <column name="heightmax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="18" size="10" type="INTEGER"/>
+        <column name="weightmin" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="19" size="10" type="INTEGER"/>
+        <column name="weightmax" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="20" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="21" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="22" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="23" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="24" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="25" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="name" indexName="gender_name_uq" nonUnique="false"/>
+        <indexe columnName="id" indexName="gender_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="gender_model" type="TABLE" schemaName="public">
+      <columns>
+        <column name="gender_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="model_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="gender_id" indexName="gender_model_pkey" nonUnique="false"/>
+        <indexe columnName="model_id" indexName="gender_model_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="model_id" fkName="gender_model_model_id_fkey" pkColumnName="id" pkTableName="model" pkTableSchema="public"/>
+        <importedKey fkColumnName="gender_id" fkName="gender_model_gender_id_fkey" pkColumnName="id" pkTableName="race_option" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>gender_id</primaryKey>
+        <primaryKey>model_id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="model" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('model_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="150" type="VARCHAR"/>
+        <column name="file_name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="300" type="VARCHAR"/>
+        <column name="cat_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
+        <column name="color" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="50" type="VARCHAR"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="6" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="8" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="name" indexName="model_name_uq" nonUnique="false"/>
+        <indexe columnName="id" indexName="model_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="cat_id" fkName="model_cat_id_fkey" pkColumnName="id" pkTableName="category_type" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="race" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('race_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="200" type="VARCHAR"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="2147483647" type="VARCHAR"/>
+        <column name="img_file" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="300" type="VARCHAR"/>
+        <column name="charc_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="race_opt_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="9" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="race_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="charc_id" fkName="race_charc_id_fkey" pkColumnName="id" pkTableName="characteristic" pkTableSchema="public"/>
+        <importedKey fkColumnName="race_opt_id" fkName="race_race_opt_id_fkey" pkColumnName="id" pkTableName="race_option" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="race_option" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('race_option_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="strengthmin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="strengthmax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="agilitymin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
+        <column name="agilitymax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="endurancemin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="10" type="INTEGER"/>
+        <column name="endurancemax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="7" size="10" type="INTEGER"/>
+        <column name="intelligencemin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="8" size="10" type="INTEGER"/>
+        <column name="intelligencemax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="9" size="10" type="INTEGER"/>
+        <column name="charismamin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="10" size="10" type="INTEGER"/>
+        <column name="charismamax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="11" size="10" type="INTEGER"/>
+        <column name="perceptionmin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="12" size="10" type="INTEGER"/>
+        <column name="perceptionmax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="13" size="10" type="INTEGER"/>
+        <column name="luckmin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="14" size="10" type="INTEGER"/>
+        <column name="luckmax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="15" size="10" type="INTEGER"/>
+        <column name="heightmin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="16" size="10" type="INTEGER"/>
+        <column name="heightmax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="17" size="10" type="INTEGER"/>
+        <column name="weightmin" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="18" size="10" type="INTEGER"/>
+        <column name="weightmax" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="19" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="20" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="21" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="22" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="23" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="24" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="race_option_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="race_option_gender" type="TABLE" schemaName="public">
+      <columns>
+        <column name="race_opt_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="gender_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="race_opt_id" indexName="race_option_gender_pkey" nonUnique="false"/>
+        <indexe columnName="gender_id" indexName="race_option_gender_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="gender_id" fkName="race_option_gender_gender_id_fkey" pkColumnName="id" pkTableName="gender" pkTableSchema="public"/>
+        <importedKey fkColumnName="race_opt_id" fkName="race_option_gender_race_opt_id_fkey" pkColumnName="id" pkTableName="race_option" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>race_opt_id</primaryKey>
+        <primaryKey>gender_id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="script" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('script_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="200" type="VARCHAR"/>
+        <column name="file_name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="300" type="VARCHAR"/>
+        <column name="arguments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="500" type="VARCHAR"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="name" indexName="script_name_uq" nonUnique="false"/>
+        <indexe columnName="id" indexName="script_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="skill" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('skill_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="200" type="VARCHAR"/>
+        <column name="skill_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="position" columnDef="false" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="1" type="BIT"/>
+        <column name="script_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="on_init" columnDef="false" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="1" type="BIT"/>
+        <column name="creation_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="now()" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="9" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="name" indexName="skill_name_uq" nonUnique="false"/>
+        <indexe columnName="id" indexName="skill_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="script_id" fkName="skill_script_id_fkey" pkColumnName="id" pkTableName="script" pkTableSchema="public"/>
+        <importedKey fkColumnName="skill_id" fkName="skill_skill_id_fkey" pkColumnName="id" pkTableName="skill" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+  </tables>
+</metadata>

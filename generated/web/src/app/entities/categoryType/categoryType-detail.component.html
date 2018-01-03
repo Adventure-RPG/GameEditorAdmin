@@ -1,0 +1,43 @@
+    <md-card *ngIf="categoryType" ngForm #categoryTypeForm="ngForm">
+        <md-card-title>CategoryType Details</md-card-title>
+        <md-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name"  class="required">Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <input mdInput id="name" type="text" [(ngModel)]="categoryType.name"  required   name="name" #name="ngModel"/>
+                    
+                    <md-error *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        Name is required.
+                    </md-error>
+                </md-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <md-input-container style="width: 90%">
+                    <textarea mdInput id="description" [(ngModel)]="categoryType.description"   autoResize="true" name="description" #description="ngModel"></textarea>
+                    
+                </md-input-container>
+                </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="cat">Cat</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <categoryType-auto-complete [(ngModel)]="categoryType.cat" id="cat" name="cat" [disabled]="sub"></categoryType-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoCat" type="button" (click)="gotoCat()" *ngIf="!sub && categoryType.cat" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearCat" type="button" (click)="clearCat()" *ngIf="!sub && categoryType.cat" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+           </div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-raised-button *ngIf="sub" (click)="onCancel()"><md-icon>cancel</md-icon>Cancel</button>
+            <button md-raised-button (click)="onSave()" [disabled]="!categoryTypeForm.form.valid"><md-icon>save</md-icon>Save</button>
+        </md-card-actions>
+    </md-card>
+
